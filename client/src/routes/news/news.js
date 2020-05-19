@@ -5,9 +5,9 @@ import './news.scss';
 
 class News extends Component {
     showNews() {
-        return this.props.news.getState().map((news) => {
+        return this.props.news.getState().map((news, i) => {
             return(
-                <div className="news_wrapper">
+                <div key={i} className="news_wrapper">
                     <h1 className="news_text">{news.title}</h1>
                     <img className="news_image" src={news.image} alt=""/>
                     <p className="news_text">{news.text}</p>
@@ -24,7 +24,7 @@ class News extends Component {
     }
 }
 
-function mapStateToProps(state) {
+function mapStateToProps() {
     return {
         news: storeNews
     }

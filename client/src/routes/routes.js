@@ -11,17 +11,23 @@ import { connect } from 'react-redux';
 class Routes extends Component {
     constructor(props) {
         super(props);
+
+        this.state = {
+            isLogin: storeUsers.getState().isLogin,
+            auth: false
+        };
     }
 
     render() {
+        const isLogin = storeUsers.getState().isLogin;
         return (
             <Router>
                 <div className='routes'>
                     <div className='routes_wrapper'>
                         <Link className='routes_item' to='/'>Главная</Link>
                         <Link className='routes_item' to='/news'>Новости</Link>
-                        <Link className='routes_item' to='/login'>Авторизация</Link>
-                        <Link className={(storeUsers.getState().isLogin === true) ? 'routes_item' : 'routes_hidden'} to='/profile'>Профиль</Link>
+                        <Link className={(isLogin === false) ? "routes_item" : "routes_hidden"} to="/login">Авторизация</Link>
+                        <Link className={(isLogin === true) ? "routes_item" : "routes_hidden"} to="/profile">Профиль</Link>
                     </div>
 
                     <Route exact path='/' component={Home}/>

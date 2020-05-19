@@ -7,6 +7,10 @@ import DataForm from "./dataForm/dataForm";
 import ModalWindow from "../../components/modalWindow/modalWindow";
 
 class Profile extends Component {
+    logoutAction() {
+        storeUsers.dispatch({type: 'USER_LOGOFF'});
+        this.props.history.push('/login')
+    };
     constructor() {
         super();
         this.state = {
@@ -31,6 +35,7 @@ class Profile extends Component {
                     <p className="profile_text">Дата регистрации: {user.registrationData}</p>
                 </div>
                 <img className="profile_image" src={user.avatar}/>
+                <button className="profile_logout" onClick={() => this.logoutAction()}>Выход</button>
                 <DataForm/>
                 {this.state.isModalOpen && <ModalWindow cnClose={this.toggleModal}/>}
             </div>
@@ -38,7 +43,16 @@ class Profile extends Component {
     }
 }
 
-function mapStateToProps() {
-}
+const userLogout = () => ({
+    type: 'USER_LOGOFF'
+});
 
-export default connect(mapStateToProps)(Profile);
+const mapDispatchToProps = dispatch => {
+    return {
+        onUserLogin: () => {
+            dispatch(userLogout());
+        }
+    };
+};
+
+export default connect(null, mapDispatchToProps)(Profile);

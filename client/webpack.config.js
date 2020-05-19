@@ -6,6 +6,8 @@ module.exports = {
         inline: true,
         contentBase: './dist',
         port: 9000,
+        historyApiFallback: true,
+        hot: true,
         proxy: {
             '/api': 'http://localhost:3000'
         }

@@ -23,12 +23,20 @@ class DataForm extends Component {
         loginFormData(this.state)
     }
 
+    handleTitleChange(event) {
+        this.setState({title: event.target.value});
+    }
+
+    handleTextChange(event) {
+        this.setState({text: event.target.value});
+    }
+
     render() {
         return (
-            <form action="" className="form" onSubmit={this.handleSubmit}>
-                <input type="text" className="form_input" placeholder='Заголовок' onChange={this.handleTitleChange}/>
-                <input type="text" className="form_input" placeholder='Ваш отзыв' onChange={this.handleTextChange}/>
-                <input className='form_button' type='submit' value='Отправить'/>
+            <form action="" className="feedback" onSubmit={this.handleSubmit}>
+                <input type="text" className="feedback_input" placeholder='Заголовок' onChange={this.handleTitleChange}/>
+                <input type="text" className="feedback_input" placeholder='Ваш отзыв' onChange={this.handleTextChange}/>
+                <input className='feedback_button' type='submit' value='Отправить'/>
             </form>
         );
     }

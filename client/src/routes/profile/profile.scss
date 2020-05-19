@@ -1,10 +1,8 @@
 @import "../../vendors/common.scss";
 
 .profile {
-  margin: 30px 20px 0 20px;
-  background-color: $mainBackgroundColor;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-between;
 
   &_text {
@@ -17,5 +15,33 @@
     margin: 10px;
     max-width: 200px;
     max-height: 300px;
+  }
+
+  &_wrapper {
+    margin: 30px 20px 0 20px;
+    background-color: $mainBackgroundColor;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &_logout {
+    width: 112px;
+    height: 31px;
+    background: #E9AA09;
+    border-radius: 3px;
+    border: none;
+    @extend %maineText;
+    font-weight: 600;
+    font-size: 20px;
+    color: #000000;
+    margin: 10px;
+
+    &:hover {
+      transition: 300ms;
+      border: 3px $mainGoldenColor solid;
+      background-color: #000000;
+      color: $mainTextColor;
+    }
   }
 }
