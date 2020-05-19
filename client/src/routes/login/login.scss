@@ -1,0 +1,51 @@
+@import "../../vendors/common.scss";
+
+.form {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  margin: 0 auto;
+  padding: 20px 0 20px 0;
+
+  &_input {
+    width: 377px;
+    height: 61px;
+    margin-right: 50px;
+    padding: 17px 10px 17px 65px;
+    @extend %maineText;
+    color: rgba(255, 255, 255, 0.4);
+    font-weight: 600;
+    background-color: #08101B;
+    outline: none;
+    text-align: left;
+    border: 1px solid #FFFFFF;
+    box-sizing: border-box;
+    border-radius: 3px;
+
+    &:hover {
+      transition: 300ms;
+      border: 3px $mainTextColor solid;
+      background-color: $mainGoldenColor;
+      color: #000000;
+    }
+  }
+
+  &_button {
+    width: 312px;
+    height: 61px;
+    background: #E9AA09;
+    border-radius: 3px;
+    border: none;
+    @extend %maineText;
+    font-weight: 600;
+    font-size: 20px;
+    color: #000000;
+
+    &:hover {
+      transition: 300ms;
+      border: 3px $mainGoldenColor solid;
+      background-color: #000000;
+      color: $mainTextColor;
+    }
+  }
+}

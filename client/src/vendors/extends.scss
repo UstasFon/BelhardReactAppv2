@@ -1,0 +1,27 @@
+%maineText {
+  font-size: 18px;
+  color: $mainTextColor;
+  font-family: OpenSans, sans-serif;
+  line-height: 145%;
+  list-style-type: none;
+}
+
+%line {
+  display: block;
+  content: "";
+  width: 100px;
+  height: 2px;
+  background-color: $mainGoldenColor;
+  margin-top: 25px;
+
+  @media (max-width: 768px) {
+    margin: 0 auto;
+  }
+}
+
+%mediumTitle {
+  font-size: 36px;
+  color: $mainTextColor;
+  font-family: OpenSans-Condensed, sans-serif;
+  margin-bottom: 25px;
+}

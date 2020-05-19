@@ -1,0 +1,21 @@
+@import "../../vendors/common.scss";
+
+.profile {
+  margin: 30px 20px 0 20px;
+  background-color: $mainBackgroundColor;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  &_text {
+    @extend %maineText;
+    color: $mainGoldenColor;
+    text-align: left;
+  }
+
+  &_image {
+    margin: 10px;
+    max-width: 200px;
+    max-height: 300px;
+  }
+}

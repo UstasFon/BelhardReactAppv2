@@ -1,0 +1,26 @@
+@import "../../../src/vendors/common.scss";
+
+.news {
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+
+  &_wrapper {
+    margin: 0 auto;
+    max-width: 650px;
+    background-color: $mainBackgroundColor;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+
+  &_text {
+    @extend %maineText;
+    color: $mainGoldenColor;
+    text-align: left;
+  }
+
+  &_image {
+    width: 650px;
+    height: 412px;
+  }
+}

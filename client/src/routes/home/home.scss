@@ -1,0 +1,44 @@
+@import "../../vendors/common.scss";
+
+.home {
+  &_title {
+    font-size: 50px;
+    color: $mainTextColor;
+    font-family: OpenSans-Condensed, sans-serif;
+    padding-bottom: 20px;
+    display: block;
+    width: 100%;
+
+    &__underline {
+      border-bottom: 3px $mainGoldenColor solid;
+    }
+  }
+
+  &_text {
+    font-size: 20px;
+    color: $mainTextColor;
+    font-family: OpenSans, sans-serif;
+    padding-bottom: 20px;
+  }
+
+  &_content {
+    display: block;
+    padding-bottom: 30px;
+  }
+
+  &_item {
+    display: flex;
+    flex-direction: row;
+    @extend %maineText;
+
+    &:before {
+      margin: 9px 5px 0 0;
+      content: "";
+      width: 19px;
+      height: 13px;
+      display: block;
+      background-image: url("../../../dist/images/vector.png");
+      background-repeat: no-repeat;
+    }
+  }
+}

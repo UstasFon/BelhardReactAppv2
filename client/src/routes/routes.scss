@@ -1,0 +1,52 @@
+@import "../vendors/common.scss";
+
+.routes {
+  padding-top: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+
+  &_wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  &_item {
+    @extend %maineText;
+    display: block;
+    font-size: 18px;
+    line-height: 25px;
+    text-decoration: none;
+    position: relative;
+    margin-right: 35px;
+
+    &:after {
+      display: none;
+    }
+    &:after {
+      display: block;
+      position: absolute;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: $mainTextColor;
+      content: "";
+      transition: width 300ms ease-out;
+    }
+
+    &:hover {
+      color: $mainGoldenColor;
+      transition: 300ms;
+    }
+
+    &:hover:after {
+      width: 100%;
+    }
+  }
+}
+.routes_hidden {
+  visibility: hidden;
+}
+
