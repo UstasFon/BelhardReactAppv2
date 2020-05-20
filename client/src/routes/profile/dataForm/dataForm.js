@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { loginFormData } from "../../../api/profileForm";
 
 import './dataForm.scss';
+import {connect} from "react-redux";
 
 class DataForm extends Component {
     constructor() {
@@ -10,10 +11,6 @@ class DataForm extends Component {
             title: '',
             text: ''
         };
-
-        this.handleTitleChange = this.handleTitleChange.bind(this);
-        this.handleTextChange = this.handleTextChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
 
@@ -21,15 +18,18 @@ class DataForm extends Component {
     handleSubmit(event) {
         event.preventDefault();
         loginFormData(this.state)
-    }
+            .then(data => {
+                dispatch('OPEN_MODAL', data.status === 404 ? true : false)
+            })
+    };
 
-    handleTitleChange(event) {
+    handleTitleChange (event) {
         this.setState({title: event.target.value});
-    }
+    };
 
-    handleTextChange(event) {
+    handleTextChange = (event) => {
         this.setState({text: event.target.value});
-    }
+    };
 
     render() {
         return (
@@ -41,5 +41,6 @@ class DataForm extends Component {
         );
     }
 }
+
 
 export default DataForm;

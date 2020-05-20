@@ -11,17 +11,16 @@ class Profile extends Component {
         storeUsers.dispatch({type: 'USER_LOGOFF'});
         this.props.history.push('/login')
     };
+
     constructor() {
         super();
         this.state = {
-            isModalOpen: true
+            isModalOpen: false
         }
-    }
-
-    ;
+    };
 
     toggleModal() {
-        this.setState(state => ({isModalOpen: !state.isModalOpen}))
+        store.dispatch({type: 'MODAL_WINDOW'})
     };
 
     render() {
