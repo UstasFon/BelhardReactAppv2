@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { loginFormData } from "../../../api/profileForm";
+import { clearReview, addReview } from './helper'
 
 import './dataForm.scss';
-import {connect} from "react-redux";
 
 class DataForm extends Component {
     constructor() {
@@ -14,12 +14,17 @@ class DataForm extends Component {
     }
 
 
-
     handleSubmit(event) {
         event.preventDefault();
         loginFormData(this.state)
-            .then(data => {
-                dispatch('OPEN_MODAL', data.status === 404 ? true : false)
+            .then(() => {
+                alert('Ваш отзыв принят');
+                clearReview()
+                    .then()
+        })
+            .catch(() => {
+                addReview()
+                    .then()
             })
     };
 
@@ -41,6 +46,8 @@ class DataForm extends Component {
         );
     }
 }
+
+
 
 
 export default DataForm;

@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 import storeUsers from '../../storeUser';
 import './profile.scss';
 import DataForm from "./dataForm/dataForm";
-import ModalWindow from "../../components/modalWindow/modalWindow";
+import Modal from "react-modal";
 
 class Profile extends Component {
     logoutAction() {
@@ -20,8 +20,12 @@ class Profile extends Component {
     };
 
     toggleModal() {
-        store.dispatch({type: 'MODAL_WINDOW'})
-    };
+        this.setState(
+            {
+                isModalOpen: false
+            }
+        )
+    }
 
     render() {
         const user  = storeUsers.getState();
@@ -35,8 +39,15 @@ class Profile extends Component {
                 </div>
                 <img className="profile_image" src={user.avatar}/>
                 <button className="profile_logout" onClick={() => this.logoutAction()}>Выход</button>
-                <DataForm/>
-                {this.state.isModalOpen && <ModalWindow cnClose={this.toggleModal}/>}
+                <Modal
+                    onOpen={this.state.isModalOpen === true}
+                >
+                    <p className="profile_modalWindow">
+                        Соединение с интереном отсутствует, данные будут сохранены локально
+                    </p>
+                    <button onClick={this.toggleModal}>Закрыть</button>
+                </Modal>
+                <DataForm openModal={this.handleSubmit.bind(this)}/>
             </div>
         );
     }

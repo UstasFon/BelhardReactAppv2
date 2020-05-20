@@ -1,15 +1,10 @@
-import apiURL from '../../src/common/common.js'
+import { apiURL } from '../../src/common/common.js'
 
 
-export const loginFormData = fetch(`${apiURL}/api/profileForm`, {
+export const loginFormData = (data) => fetch(apiURL, {
     method: 'POST',
-    body: JSON.stringify(data),
-    headers: {'Content-Type'},
-
-})
-// {
-//     return axios
-//         .post( `${apiURL}/api/profileForm`, { data })
-//         .then(() => true)
-//         .catch(() => false)
-// };
+    headers: 'Content-Type',
+    body: JSON.stringify(data)
+        .then(() => true)
+        .catch(() => false)
+});
