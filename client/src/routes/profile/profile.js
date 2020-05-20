@@ -19,10 +19,10 @@ class Profile extends Component {
         }
     };
 
-    toggleModal() {
+    toggleModal(inOpen) {
         this.setState(
             {
-                isModalOpen: false
+                isModalOpen: inOpen
             }
         )
     }
@@ -40,14 +40,13 @@ class Profile extends Component {
                 <img className="profile_image" src={user.avatar}/>
                 <button className="profile_logout" onClick={() => this.logoutAction()}>Выход</button>
                 <Modal
-                    onOpen={this.state.isModalOpen === true}
-                >
+                    onOpen={this.state.isModalOpen}>
                     <p className="profile_modalWindow">
                         Соединение с интереном отсутствует, данные будут сохранены локально
                     </p>
-                    <button onClick={this.toggleModal}>Закрыть</button>
+                    <button onClick={this.toggleModal.bind(this, true)}>Закрыть</button>
                 </Modal>
-                <DataForm openModal={this.handleSubmit.bind(this)}/>
+                <DataForm openModal={this.toggleModal.bind(this)}/>
             </div>
         );
     }

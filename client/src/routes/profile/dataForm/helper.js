@@ -1,15 +1,13 @@
 export const clearReview = async function() {
-    let tx = db.transaction('userData', 'readwrite');
+    let tx = window.db.transaction('userData', 'readwrite');
     await tx.objectStore('userData').clear();
-    await list();
 };
 
-export const addReview = async function () {
-    let tx = db.transaction('userData', 'readwrite');
+export const addReview = async function (data) {
+    let tx = window.db.transaction('userData', 'readwrite');
 
     try {
-        await tx.objectStore('userData').add(this.state);
-        await list();
+        await tx.objectStore('userData').add(data);
     } catch(err) {
         if (err.name == 'ConstraintError') {
             alert("Ваш отзыв уже добавлен");

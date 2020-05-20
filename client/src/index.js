@@ -6,17 +6,16 @@ import Header from './common/header/header';
 import Background from './global/background/background.js';
 import Container from './components/container/container.js';
 import Routes from './routes/routes.js';
+// import idb from 'idb';
 
 let db;
 
 init();
 
 async function init() {
-    db = await idb.openDb('userData', 1, db => {
-        db.createObjectStore('userData', {keyPath: data})
+    window.db = await idb.openDb('userData', 1, db => {
+        db.createObjectStore('userData', {keyPath: 'title'})
     });
-
-    list();
 }
 
 async function list() {

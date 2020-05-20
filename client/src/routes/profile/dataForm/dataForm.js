@@ -11,20 +11,24 @@ class DataForm extends Component {
             title: '',
             text: ''
         };
+
+        this.handleTitleChange = this.handleTitleChange.bind(this);
+        this.handleTextChange = this.handleTextChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
 
     handleSubmit(event) {
         event.preventDefault();
-        loginFormData(this.state)
+        addReview({...this.state});
+        loginFormData(indexedDB.userData)
             .then(() => {
                 alert('Ваш отзыв принят');
-                clearReview()
-                    .then()
+                clearReview();
         })
             .catch(() => {
-                addReview()
-                    .then()
+                alert('Отзы сохранён локально');
+                this.props.openModal(true);
             })
     };
 
@@ -46,8 +50,5 @@ class DataForm extends Component {
         );
     }
 }
-
-
-
 
 export default DataForm;

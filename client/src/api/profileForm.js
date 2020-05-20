@@ -5,6 +5,4 @@ export const loginFormData = (data) => fetch(apiURL, {
     method: 'POST',
     headers: 'Content-Type',
     body: JSON.stringify(data)
-        .then(() => true)
-        .catch(() => false)
 });
