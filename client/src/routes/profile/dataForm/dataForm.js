@@ -27,7 +27,7 @@ class DataForm extends Component {
         this.setState({title: event.target.value});
     };
 
-    handleTextChange = (event) => {
+    handleTextChange (event) {
         this.setState({text: event.target.value});
     };
 
