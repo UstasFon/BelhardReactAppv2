@@ -28,9 +28,15 @@ module.exports = {
                 ],
             },
             {
-                test: /\.js$/,
-                exclude: /(node_modules)/,
-                use: ['babel-loader'],
+                test: /\.m?js$/,
+                exclude: /(node_modules|bower_components)/,
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        presets: ['@babel/preset-env'],
+                        plugins: ["syntax-async-functions"]
+                    }
+                }
             },
             {
                 test: /\.(png|jpeg|gif|ttf|svg)$/i,

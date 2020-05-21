@@ -44,7 +44,7 @@ class DataForm extends Component {
         return (
             <form action="" className="feedback" onSubmit={this.handleSubmit}>
                 <input type="text" className="feedback_input" placeholder='Заголовок' onChange={this.handleTitleChange}/>
-                <input type="text" className="feedback_input" placeholder='Ваш отзыв' onChange={this.handleTextChange}/>
+                <input type="text" className="feedback_input feedback_input__text" placeholder='Ваш отзыв' onChange={this.handleTextChange}/>
                 <input className='feedback_button' type='submit' value='Отправить'/>
             </form>
         );

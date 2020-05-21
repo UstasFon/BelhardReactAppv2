@@ -6,7 +6,7 @@ import Header from './common/header/header';
 import Background from './global/background/background.js';
 import Container from './components/container/container.js';
 import Routes from './routes/routes.js';
-// import idb from 'idb';
+import idb from 'idb';
 
 let db;
 
